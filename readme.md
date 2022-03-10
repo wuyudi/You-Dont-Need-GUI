@@ -33,11 +33,13 @@ As a computer expert, we want to be more efficient and do our jobs better. We kn
 1. [show file/directory size](#show-filedirectory-size)
 1. [show file/directory info](#show-filedirectory-info)
 1. [open a file with the default program](#open-a-file-with-the-default-program)
+1. [open a file in any application](#open-a-file-in-any-application)
 1. [zip a directory](#zip-a-directory)
 1. [unzip a directory](#unzip-a-directory)
 1. [peek files in a zip file](#peek-files-in-a-zip-file)
 1. [remove a file](#remove-a-file)
 1. [remove a directory](#remove-a-directory)
+1. [remove all files of certain criteria](#remove-all-files-of-certain-criteria)
 1. [list directory contents](#list-directory-contents)
 1. [tree view a directory and its subdirectories](#tree-view-a-directory-and-its-subdirectories)
 1. [find a stale file](#find-a-stale-file)
@@ -53,7 +55,12 @@ As a computer expert, we want to be more efficient and do our jobs better. We kn
 1. [show disk size](#show-disk-size)
 1. [check performance of your computer](#check-performance-of-your-computer)
 1. [know whether your computer is under load, and whether it's due to memory or CPU](#know-whether-your-computer-is-under-load-and-whether-its-due-to-memory-or-cpu)
-1. [Poweroff or Reboot your computer](#poweroff-or-reboot-your-computer)
+1. [poweroff or reboot your computer](#poweroff-or-reboot-your-computer)
+1. [locate USB drives](#locate-usb-drives)
+1. [unmount USB drives](#unmount-usb-drives)
+1. [format USB drives](#format-usb-drives)
+1. [check USB format](#check-usb-format)
+1. [run command on all files of a directory](#run-command-on-all-files-of-a-directory)
 1. [Quick tips](#quick-tips)
 1. [Hotkeys](#hotkeys)
 1. [I can't remember these cryptic commands](#i-cant-remember-these-cryptic-commands)
@@ -68,6 +75,8 @@ Copy `readme.txt` to the `documents` directory
 ```shell
 $ cp readme.txt documents/
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## duplicate a file
 
@@ -81,6 +90,8 @@ More advanced:
 $ cp readme{,.bak}.txt
 # Note: learn how the {} works with touch foo{1,2,3}.txt and see what happens.
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## copy a directory
 
@@ -93,6 +104,8 @@ $ cp -a myMusic myMedia/
 # or
 $ cp -a myMusic/ myMedia/myMusic/
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## duplicate a directory
 
@@ -103,6 +116,8 @@ $ cp -a myMusic/ myMedia/
 # or if `myMedia` folder doesn't exist
 $ cp -a myMusic myMedia/
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## move a file
 
@@ -114,6 +129,8 @@ $ mv readme.txt documents/
 
 **Always** use a trailing slash when moving files, [for this reason](http://unix.stackexchange.com/a/50533).
 
+[Go to table of contents 🔼](#quick-links)
+
 ## rename a file
 
 **STOP RIGHT CLICKING AND RENAME A FILE** :-1:
@@ -121,6 +138,8 @@ $ mv readme.txt documents/
 ```shell
 $ mv readme.txt README.md
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## move a directory
 
@@ -131,6 +150,8 @@ $ mv myMedia myMusic/
 # or
 $ mv myMedia/ myMusic/myMedia
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## rename a directory
 
@@ -139,6 +160,8 @@ $ mv myMedia/ myMusic/myMedia
 ```shell
 $ mv myMedia/ myMusic/
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## merge directories
 
@@ -147,6 +170,8 @@ $ mv myMedia/ myMusic/
 ```shell
 $ rsync -a /images/ /images2/	# note: may over-write files with the same name, so be careful!
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## create a new file
 
@@ -157,6 +182,8 @@ $ touch 'new file'    # updates the file's access and modification timestamp if 
 # or
 $ > 'new file'        # note: erases the content if it already exists
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## create a new directory
 
@@ -167,6 +194,8 @@ $ mkdir 'untitled folder'
 # or
 $ mkdir -p 'path/may/not/exist/untitled folder'
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## show file/directory size
 
@@ -175,6 +204,8 @@ $ mkdir -p 'path/may/not/exist/untitled folder'
 ```shell
 $ du -sh node_modules/
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## show file/directory info
 
@@ -184,6 +215,8 @@ $ du -sh node_modules/
 $ stat -x readme.md   # on macOS
 $ stat readme.md      # on Linux
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## open a file with the default program
 
@@ -194,6 +227,18 @@ $ xdg-open file   # on Linux
 $ open file       # on MacOS
 $ start file      # on Windows
 ```
+[Go to table of contents 🔼](#quick-links)
+
+
+## open a file in any application
+
+**STOP RIGHT CLICKING AND OPEN WITH** :-1:
+
+```shell
+$ open -a appName file
+```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## zip a directory
 
@@ -202,6 +247,8 @@ $ start file      # on Windows
 ```shell
 $ zip -r archive_name.zip folder_to_compress
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## unzip a directory
 
@@ -210,6 +257,22 @@ $ zip -r archive_name.zip folder_to_compress
 ```shell
 $ unzip archive_name.zip
 ```
+[Go to table of contents 🔼](#quick-links)
+
+
+## decompress files of any format
+
+**STOP RIGHT CLICKING AND UNCOMPRESS DIRECTORY** :-1:
+
+```shell
+$ unar archive_name.zip
+$ unar archive_name.7z
+$ unar archive_name.rar
+$ unar archive_name.ISO
+$ unar archive_name.tar.gz
+```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## decompress files of any format
 
@@ -232,6 +295,22 @@ $ zipinfo archive_name.zip
 # or
 $ unzip -l archive_name.zip
 ```
+[Go to table of contents 🔼](#quick-links)
+
+
+## peek files in a compress file of any format
+
+**STOP USING WinRAR** :-1:
+
+```shell
+$ lsar -l archive_name.zip
+$ lsar -l archive_name.7z
+$ lsar -l archive_name.ISO
+$ lsar -l archive_name.rar
+$ lsar -l archive_name.tar.gz
+```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## peek files in a compress file of any format
 
@@ -253,7 +332,9 @@ $ lsar -l archive_name.tar.gz
 $ rm my_useless_file
 ```
 
-IMPORTANT: The rm command deletes my_useless_file permanently, which is equivalent to move my_useless_file to Recycle Bin and hit Empty Recycle Bin.
+**IMPORTANT**: The `rm` command deletes `my_useless_file` permanently, which is equivalent to move `my_useless_file` to Recycle Bin and hit Empty Recycle Bin.
+
+[Go to table of contents 🔼](#quick-links)
 
 ## remove a directory
 
@@ -262,6 +343,18 @@ IMPORTANT: The rm command deletes my_useless_file permanently, which is equivale
 ```shell
 $ rm -r my_useless_folder
 ```
+[Go to table of contents 🔼](#quick-links)
+
+
+## remove all files of certain criteria
+
+```shell
+$ find . -name "*.bak" -type f -delete
+```
+
+**IMPORTANT**: run `find . -name "*.bak" -type f` first to see exactly which files you will remove.
+
+[Go to table of contents 🔼](#quick-links)
 
 ## list directory contents
 
@@ -272,6 +365,8 @@ $ ls my_folder        # Simple
 $ ls -la my_folder    # -l: show in list format. -a: show all files, including hidden. -la combines those options.
 $ ls -alrth my_folder # -r: reverse output. -t: sort by time (modified). -h: output human-readable sizes.
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## tree view a directory and its subdirectories
 
@@ -283,6 +378,8 @@ $ find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'      # on MacOS
 # Note: install homebrew (https://brew.sh) to be able to use (some) Linux utilities such as tree.
 # brew install tree
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## find a stale file
 
@@ -293,6 +390,8 @@ Find all files modified more than 5 days ago
 ```shell
 $ find my_folder -mtime +5
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## show a calendar
 
@@ -308,6 +407,8 @@ Display selected month and year calendar
 ```shell
 $ cal 11 2018
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## find a future date
 
@@ -325,6 +426,8 @@ What about a week from now?
 $ date -d "+7 days"                                           # on Linux
 $ date -j -v+7d                                               # on MacOS
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## use a calculator
 
@@ -333,6 +436,8 @@ $ date -j -v+7d                                               # on MacOS
 ```shell
 $ bc -l
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## force quit a program
 
@@ -341,15 +446,19 @@ $ bc -l
 ```shell
 $ killall -9 program_name
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## check server response
 
 **STOP OPENING A BROWSER** :-1:
 
 ```shell
-curl -i umair.surge.sh
+$ curl -i umair.surge.sh
 # curl's -i (--include) option includes HTTP response headers in its output.
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## view content of a file
 
@@ -360,6 +469,8 @@ $ cat apps/settings.py
 # if the file is too big to fit on one page, you can use a 'pager' (less) which shows you one page at a time.
 $ less apps/settings.py
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## search for a text in a file
 
@@ -371,6 +482,9 @@ $ grep -i "Query" file.txt
 
 ![grep](./grep.jpg)
 
+[Go to table of contents 🔼](#quick-links)
+
+
 ## search in all files in current working directory, quickly (entire disk in less than 15 minutes)
 
 **STOP CMD/CTRL + F IN A DIRECTORY** :-1:
@@ -379,6 +493,8 @@ $ grep -i "Query" file.txt
 $ ripgrep -i "Query"
 # brew install ripgrep
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## view an image
 
@@ -388,6 +504,8 @@ $ ripgrep -i "Query"
 $ imgcat image.png
 # Note: requires iTerm2 terminal.
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## show disk size
 
@@ -396,6 +514,8 @@ $ imgcat image.png
 ```shell
 $ df -h
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## check performance of your computer
 
@@ -404,6 +524,8 @@ $ df -h
 ```shell
 $ top
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## know whether your computer is under load, and whether it's due to memory or CPU
 
@@ -411,21 +533,74 @@ $ top
 $ glances
 # brew install glances
 ```
+[Go to table of contents 🔼](#quick-links)
 
-## Poweroff or Reboot your computer
 
-You can poweroff or reboot your machine via the command line. This can be useful when you're patching a server that is acessed via SSH and you don't have a GUI.
+## poweroff or reboot your computer
+
+This can be useful when you're patching a server that is acessed via SSH and you don't have a GUI.
 
 ```shell
 # poweroff
-sudo shutdown -h now
+$ sudo shutdown -h now
 # reboot
-sudo shutdown -r now
+$ sudo shutdown -r now
 ```
+[Go to table of contents 🔼](#quick-links)
+
+
+## locate USB drives
+
+```shell
+$ df
+```
+[Go to table of contents 🔼](#quick-links)
+
+
+## unmount USB drives
+
+```shell
+$ sudo umount /dev/sdb1
+```
+[Go to table of contents 🔼](#quick-links)
+
+
+## format USB drives
+
+```shell
+# FAT32
+$ sudo mkfs.vfat /dev/sdb1
+# NTFS
+$ sudo mkfs.ntfs /dev/sdb1
+# exFAT
+$ sudo mkfs.exfat /dev/sdb1
+```
+[Go to table of contents 🔼](#quick-links)
+
+
+## check USB format
+
+```shell
+$ sudo fsck /dev/sdb1
+```
+[Go to table of contents 🔼](#quick-links)
+
+
+## run command on all files of a directory
+
+**STOP CLICKING THE FILES ONE BY ONE** :-1:
+
+```shell
+$ for FILE in *; do echo $FILE; done
+```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## Quick tips
 
 ![CLI tips](./cli_tips.jpg)
+
+[Go to table of contents 🔼](#quick-links)
 
 ## Hotkeys
 
@@ -453,7 +628,11 @@ Esc + B   Same as Alt + B
 Alt + .   Paste the last word of the most recently command
 Tab       Auto-complete files and directory names
 ```
+[Go to table of contents 🔼](#quick-links)
+
 
 ## I can't remember these cryptic commands
 
 You can always google or `man` the commands you are not familiar with. Or, checkout [tldr](https://github.com/tldr-pages/tldr), a collection of simplified and community-driven man pages.
+
+[Go to table of contents 🔼](#quick-links)
